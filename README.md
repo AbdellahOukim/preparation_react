@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+<Component1>   => high level
+//{username}
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Component 1 
 
-## Available Scripts
+<Component2 username={username} />
 
-In the project directory, you can run:
 
-### `npm start`
+</Component1>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+#################
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<Component2>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+component 2
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+username is :  props.username
 
-### `npm run eject`
+<Component3  />
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</Component2>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#################
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<Component3/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+props-drilling 
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+store =>   (  data ) 
 
-### `npm run build` fails to minify
+read => hoock useSelector()  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+modify => hoock useDispatch() 
+
+create store =>  legacy_createStore() ;
+
+const data = legacy_createStore(  reducer  )
+
+reducer => operations ( crud ) return =>  data ; 
+
+<Provider store={} >
+    <Component1> 
+</Provider>
+
+
+
+
+
+
+link =>  /:id
+
+useParams =>   params = {
+    id : 12 
+}
+
+{id , cat } = useParams
+
+
+
+
+
+<ComponentX  name="ayoub" age={22} >
+
+
+props = {
+    name : "ayoub" ,
+    age : 22
+}
+
+{ name , age } = props ;
+
+
+// class =>
+
+useState  => start with use => function (hoocks) ; // this.state (built-in) 
+
+
+useEffect => take 2 params ( function | depandecy array ) => function component
+
+class => depandecy array (empty) =>   componentDidMount() ;
+class => depandecy array ( !empty ) =>   componentDidUpdate() ;
+
+
+
+we can use class with function 
+
+
+
+
+
+two way to fatch data from api 
+
+<!-- start fetch  -->
+
+fetch => built-in js
+fetch('link').then( response => response.["json" , "text" ...]  ).then().cath(err => cl(err)) ;
+
+fetch("link" , { method : "post" , body : data } ).then(response.["json" , "text" ...]  ).then().cath(err => cl(err)) ;)
+
+<!-- End fetch  -->
+
+
+<!-- start axios  -->
+
+axios => library js to fetch data
+
+npm install axios => installation
+import axios from 'axios' 
+
+syntax => axios['method'].then().catch() ;
+
+axios.get("link").then(  response => response.data  ).catch(err => cl(err) ) ;
+axios.delete("link/id").then(  response => response.data  ).catch(err => cl(err) ) ;
+axios.put("link").then(  response => response.data  ).catch(err => cl(err) ) ;
+axios.post("link" , {
+    data
+} ).then(  response => response.data  ).catch(err => cl(err) ) ;
+
+<!-- start axios  -->
